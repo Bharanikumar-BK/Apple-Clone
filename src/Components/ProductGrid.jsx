@@ -1,17 +1,19 @@
 import ProductCard from "./ProductCard";
 
-function ProductGrid({ products }) {
+const ProductGrid = ({ products, cols = 3, addToCart }) => {
+  const gridClasses = {
+    2: 'md:grid-cols-2',
+    3: 'md:grid-cols-2 lg:grid-cols-3',
+    4: 'md:grid-cols-2 lg:grid-cols-4'
+  };
+
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold text-center mb-12">
-        The latest. Take a look at what's new.
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+    <div className={`grid grid-cols-1 ${gridClasses[cols] || 'md:grid-cols-2 lg:grid-cols-3'} gap-8`}>
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} addToCart={addToCart} />
+      ))}
     </div>
   );
-}
+};
+
 export default ProductGrid;

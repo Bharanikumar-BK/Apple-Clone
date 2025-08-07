@@ -1,21 +1,23 @@
-function PromoSection() {
+import React from "react";
+import appleTv from "../assets/appletv.jpg"; // Make sure the path is correct
+
+const PromoSection = () => {
   return (
-    <section className="bg-gray-100 py-16">
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-6">Apple TV+</h2>
-        <p className="text-xl mb-8">
-          Get 3 months of Apple TV+ free when you buy an Apple device.
-        </p>
-        <div className="flex justify-center gap-4">
-          <a href="#" className="text-blue-500 hover:underline text-lg">
-            Try it free &gt;
-          </a>
-          <a href="#" className="text-blue-500 hover:underline text-lg">
-            Learn more &gt;
-          </a>
-        </div>
+    <section
+      className="relative h-[600px] bg-cover bg-center flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${appleTv})`,
+      }}
+    >
+      <div className="text-white text-center bg-black bg-opacity-50 p-6 rounded-xl">
+        <h2 className="text-5xl font-bold mb-4">Apple TV+</h2>
+        <p className="text-xl mb-6">Stream award-winning Apple Originals.</p>
+        <button className="bg-white text-black px-6 py-2 rounded-full hover:bg-gray-200 transition">
+          Watch now
+        </button>
       </div>
     </section>
   );
-}
+};
+
 export default PromoSection;
