@@ -87,7 +87,7 @@ const ProductDetail = ({ addToCart }) => {
         </div>
       </div>
       
-      {/* Related Products */}
+     
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

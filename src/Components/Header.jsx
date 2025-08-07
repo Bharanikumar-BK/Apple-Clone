@@ -34,32 +34,36 @@ const Navbar = ({ mobileMenuOpen, setMobileMenuOpen, cartItems, setSearchQuery }
         <ul className="flex items-center justify-between h-12 text-white text-sm">
           <li>
             <Link to="/">
-              <img src={appleLogo} alt="Apple Logo" className="h-5"/>
+              <img src={appleLogo} alt="Apple Logo" className="h-5" />
             </Link>
           </li>
-          
+
           {categories.map((item) => (
             <li key={item} className="hidden md:block">
               <Link
-                to={`/category/${item.toLowerCase().replace(" & ", "-").replace(" ", "-")}`}
+                to={
+                  item === "Store"
+                    ? "/store"
+                    : `/category/${item.toLowerCase().replace(" & ", "-").replace(" ", "-")}`
+                }
                 className="hover:text-gray-300 transition-colors"
               >
                 {item}
               </Link>
             </li>
           ))}
-          
+
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <button 
+              <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 className="text-white hover:text-gray-300 transition-colors"
               >
                 <FiSearch className="w-5 h-5" />
               </button>
-              
+
               {searchOpen && (
-                <form 
+                <form
                   onSubmit={handleSearch}
                   className="absolute right-0 top-full mt-2 bg-white rounded-md shadow-lg overflow-hidden"
                 >
@@ -74,7 +78,7 @@ const Navbar = ({ mobileMenuOpen, setMobileMenuOpen, cartItems, setSearchQuery }
                 </form>
               )}
             </div>
-            
+
             <Link to="/cart" className="relative text-white hover:text-gray-300 transition-colors">
               <FiShoppingBag className="w-5 h-5" />
               {cartItems.length > 0 && (

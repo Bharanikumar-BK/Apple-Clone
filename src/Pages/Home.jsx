@@ -20,7 +20,7 @@ const Home = ({ products, addToCart }) => {
     dark: true,
   };
 
-  // Remove duplicate Apple TV+
+ 
   const featuredProducts = products.filter(p => p.title !== "Apple TV+").slice(0, 4);
 
   const settings = {
@@ -70,7 +70,7 @@ const Home = ({ products, addToCart }) => {
     <>
       <Hero {...heroData} />
 
-      {/* Featured Products */}
+     
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -87,7 +87,7 @@ const Home = ({ products, addToCart }) => {
         />
       </motion.section>
 
-      {/* Categories Carousel */}
+      
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -118,10 +118,10 @@ const Home = ({ products, addToCart }) => {
         </Slider>
       </motion.section>
 
-      {/* ✅ Only One Apple TV+ Promo */}
+      
       <PromoSection />
 
-      {/* Accessories Section */}
+      
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
